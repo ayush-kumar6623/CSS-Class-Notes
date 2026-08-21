@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #parent{
+        height: 600px;
+        width: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+        flex-wrap: wrap;
+    }
+
+    #parent div{
+        height: 100px;
+        width: 100px;
+        border: 1px solid red;
+        font-size: 80px;
+        text-align: center;
+    }
+
+    #parent div:nth-child(even){
+        background-color: red;
+        /* order: 1;
+        flex-shrink: 0; */
+        flex-grow:3;
+        
+    }
+    #parent div:nth-child(odd){
+        background-color: yellow;
+        /* order: 1;
+        flex-shrink: 0; */
+        flex-grow:3;
+        
+    }
+   
+</style>
+<body>
+
+    <div id="parent">
+        
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+
+    </div>
+    
+</body>
+</html>

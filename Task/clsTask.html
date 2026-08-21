@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        header {
+            height: 120px;
+            width: 100%;
+            /* background-color: aqua; */
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+        }
+
+        .logo img {
+            height: 100px;
+            width: 100px;
+            object-fit: contain;
+        }
+
+        .nav{
+            height: 90px;
+        }
+        .nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            background-color: red;
+        }
+
+        .nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .nav ul li a:hover {
+            color: red;
+        }
+
+        .button {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="https://imgs.search.brave.com/2ostfWzMG1TyTlkVH7abjszO3K7R_JxfFpaQ3q2cNuE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtcGxhdGZvcm0u/OTlzdGF0aWMuY29t/Ly80Zld2R3Ffd2cx/RkNfYnVDWHVtcUhL/c0I2S2s9LzB4MDoy/MDAweDIwMDAvZml0/LWluLzUwMHg1MDAv/OTlkZXNpZ25zLWNv/bnRlc3RzLWF0dGFj/aG1lbnRzLzEyMi8x/MjI5NzEvYXR0YWNo/bWVudF8xMjI5NzEx/MTc"
+                    alt="Logo">
+            </div>
+
+            <nav class="nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+
+            <div class="button">
+                <button>Login</button>
+            </div>
+        </header>
+
+    </div>
+
+</body>
+
+</html>

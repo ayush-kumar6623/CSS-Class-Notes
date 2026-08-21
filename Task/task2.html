@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: normal;
+            margin-bottom: 30px;
+        }
+
+        .gallery {
+            width: 80%;
+            margin: auto;
+            gap: 10px;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .gallery img {
+            width: 500px;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <h1>
+        Image Gallery with CSS Grid
+        <br>
+        & Flexbox Fallback
+    </h1>
+
+    <div class="gallery">
+
+        <div class="row" id="row1">
+            <img src="https://imgs.search.brave.com/pfQJ-v03VGvKVIYMj8jTlrG2Eu5Fi1uQ3J_GucKXBjQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzNkLzhj/L2Y5LzNkOGNmOTNj/YzEzYjM5MzE5MjQz/YjkxNzU2NTQwZGY2/LmpwZw">
+            <img id="wanda" src="https://imgs.search.brave.com/mbBl4_KzBx_3avLXyFDrM9TGE5IZ7uVFjs2u5KeuC3w/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvd2Fu/ZGEtYXdha2VuZWQt/d2l0Y2gtNGstOWJn/bHd0eHBrcXQ2Z2k2/di5qcGc">
+            <img src="https://imgs.search.brave.com/Oh4tECbY-UZoIBsgP29KQnZLYIlC8e7w5kMGU4bpPDU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vcGljanVt/Ym8uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9oaWdoLWZhc2hp/b24td2ludGVyLXN0/dWRpby1waG90b3No/b290LXdpdGgteW91/bmctbWFuLWluLXdp/bnRlci1qYWNrZXQt/ZnJlZS1waG90by5q/cGVnP3c9NjAwJnF1/YWxpdHk9ODA" >
+        </div>
+        <div class="row" id="row2">
+
+           <img src="https://imgs.search.brave.com/4s4V_KKQwCkkp9ovMieDBH5y0nTlyghEBXtgJ93bFHA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9i/L2I2L0ltYWdlX2Ny/ZWF0ZWRfd2l0aF9h/X21vYmlsZV9waG9u/ZS5wbmc">
+            <img src="https://imgs.search.brave.com/1ii8a2rWCyS7k9b2457TE-moFGqt_ki2L9ggOdUbG7E/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzhlLzFk/LzljLzhlMWQ5Y2Fj/NjAwYWU3OGVlNGJk/ODNiMzg5MDAzYjA0/LmpwZw">
+            <img src="https://imgs.search.brave.com/-dKhqKExIwya7YGMYUqYuU9jiILx2F78aXu3Ob5ydGI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vcGljanVt/Ym8uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9tZWxsb3ctcG9y/dHJhaXQtb2YtYS1y/b2JvdGljLXdvbWFu/LWZyZWUtcGhvdG8u/anBlZz93PTYwMCZx/dWFsaXR5PTgw" >
+        </div>
+
+
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .outer {
+            width: 70%;
+            background-color: #bce8c3;
+            padding: 20px;
+            margin: auto;
+            border: 4px solid green;
+        }
+
+
+        .box1 {
+            height: 105px;
+            border: 4px solid blue;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .b1,
+        .b3 {
+            height: 64px;
+            width: 31%;
+            background-color: #ffd3ad;
+            border: 4px solid salmon;
+        }
+
+        .b2 {
+            box-sizing: border-box;
+            padding: 5px;
+            height: 64px;
+            width: 31%;
+            background-color: #ffd3ad;
+            border: 4px solid salmon;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+
+
+        .r1 {
+            display: flex;
+            width: 50%;
+            height: 44px;
+            background-color: #ffb6bd;
+            border: 4px solid red;
+
+        }
+
+        .r2 {
+            display: flex;
+            width: 50%;
+            height: 44px;
+            background-color: #ffb6bd;
+            border: 4px solid red;
+        }
+
+
+        .box2 {
+            height: 175px;
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .c1 {
+            width: 50%;
+            background-color: #ffb0b5;
+            border: 4px solid brown;
+        }
+
+        .c2 {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+
+        .d {
+
+            height: 50%;
+            background-color: #ffb0b5;
+            border: 4px solid brown;
+        }
+
+        .dd1 {
+            height: 50%;
+
+            background-color: #ffb0b5;
+            border: 4px solid brown;
+        }
+
+        .box3 {
+            height: 88px;
+            border: 4px solid blue;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px;
+        }
+
+        .d1,
+        .d4ss {
+            width: 31%;
+            height: 64px;
+            background-color: #dcd8ff;
+            border: 4px solid #6650b5;
+        }
+
+        .d2,
+        .d3 {
+            width: 18%;
+            height: 64px;
+            background-color: #ffd3ad;
+            border: 4px solid salmon;
+        }
+
+        .d4ss {
+            margin-left: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="outer">
+
+        <div class="box1">
+            <div class="b1"></div>
+            <div class="b2">
+                <div class="r1"></div>
+                <div class="r2"></div>
+            </div>
+            <div class="b3"></div>
+        </div>
+
+        <div class="box2">
+            <div class="c1"></div>
+            <div class="c2">
+                <div class="d"></div>
+                <div class="dd1"></div>
+            </div>
+        </div>
+
+        <div class="box3">
+            <div class="d1"></div>
+            <div class="d2"></div>
+            <div class="d3"></div>
+            <div class="d4ss"></div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

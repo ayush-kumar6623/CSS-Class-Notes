@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input</title>
+</head>
+<style>
+    #inp{
+        width: 50vw;
+        margin: 300px;
+        padding: 10px 20px;
+        font-size: 20px;
+        /* outline: none; */
+        /* border: none; */
+    
+
+    }
+    /* #inp:active{
+        outline: 2px solid green;
+    } */
+
+    /* #inp:focus{
+        outline: 2px solid rgb(111, 0, 255);
+        border-radius: 40px;
+        background-color: red;
+        color: white;
+    } */
+
+    input::placeholder{
+        color: red;
+        font-weight: bold;
+        font-size: 27px;
+    }
+
+
+    button{
+        background-color:green;
+        color: white;
+        border-radius: 30px;
+        padding: 15px 15px;
+        font-size: 20px;
+    }
+    button:active{
+        transform: scale(1.2);
+        background-color: darkgreen;
+    }
+    /* button:hover{
+        background-color: red;
+    } */
+</style>
+<body>
+    <input type="text" id="inp" placeholder="Enter Your Name">
+    <button type="submit">Submit</button>
+</body>
+</html>

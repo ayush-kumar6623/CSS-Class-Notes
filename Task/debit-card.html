@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #card-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #card {
+            width: 400px;
+            height: 250px;
+            border-radius: 15px;
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+            perspective: 1000px;
+        }
+        #card .card-face {
+            width: 100%;
+            position: absolute;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            border-radius: 15px;
+        }
+        #chip {
+            width: 60px;
+            height: 40px;
+            background-color: gold;
+            border: 2px solid #FFD700;
+            border-radius: 5px;
+            margin-top: 20px;
+        
+        }
+
+        #Back {
+            transform: rotateY(180deg);
+            background: linear-gradient(to right, #8f94fb, #4e54c8);
+            position: absolute;
+        }
+
+        #card-number {
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 9px;
+        }
+        #Expires {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #holder-name {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        #magnetic-strip {
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            margin-top: 20px;
+        }
+        #signature {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #signature-box {
+            width: 200px;
+            height: 30px;
+            background-color: white;
+            border: 1px solid black;
+        }
+        #cvv {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="card-container">
+        <div id="card">
+            <!-- Font Face -->
+            <div class="card-face front">
+                <h1>Children'Bank of India</h1>
+                <div id="chip"></div>
+                <div id="card-number">1234567890</div>
+                <div id="Expires">
+                    <span>Expires On</span>
+                    <h3>01/28</h3>
+                    <div id="holder-name">
+                        Ayush Kumar
+                    </div>
+                </div>
+            </div>
+            <!-- Back Face -->
+            <div class=" card-face back">
+                <div id="magnetic-strip"></div>
+                <div id="signature">
+                    <span>Authorized Signature</span>
+                    <div id="signature-box"></div>
+                </div>
+                <div id="cvv">
+                    <span>CVV</span>
+                    <h3>123</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

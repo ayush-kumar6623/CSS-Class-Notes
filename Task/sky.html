@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mountain Animation</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            background: #eef2f3;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .scene {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to bottom,
+                    #f7f7f5 0%,
+                    #eaf0f2 55%,
+                    #cddbe0 100%);
+        }
+
+        /* SUN */
+        .sun {
+            position: absolute;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #e5bd2f;
+            top: 14%;
+            right: 12%;
+            box-shadow: 0 0 30px rgba(229, 189, 47, 0.25);
+            animation: sunFloat 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes sunFloat {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* MOUNTAINS */
+        .mountains {
+            position: absolute;
+            bottom: 16%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110%;
+            height: 55%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 0;
+        }
+
+        /* Individual mountains */
+        .mountain {
+            position: relative;
+            width: 0;
+            height: 0;
+            border-left: 170px solid transparent;
+            border-right: 170px solid transparent;
+            border-bottom: 300px solid #7291a0;
+            filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.12));
+        }
+
+        /* Different mountain colors and sizes */
+        .m1 {
+            transform: scale(1.1);
+            border-bottom-color: #607f8f;
+        }
+
+        .m2 {
+            transform: scale(0.8);
+            margin-left: -100px;
+            border-bottom-color: #87a2ae;
+        }
+
+        .m3 {
+            transform: scale(1.35);
+            margin-left: -100px;
+            border-bottom-color: #6d8997;
+        }
+
+        .m4 {
+            transform: scale(0.9);
+            margin-left: -110px;
+            border-bottom-color: #8fa8b2;
+        }
+
+        /* Snow caps */
+        .mountain::after {
+            content: "";
+            position: absolute;
+            top: 180px;
+            left: -170px;
+            width: 0;
+            height: 0;
+            border-left: 170px solid transparent;
+            border-right: 170px solid transparent;
+            border-bottom: 120px solid rgba(245, 248, 248, 0.85);
+            clip-path: polygon(50% 0%,
+                    58% 25%,
+                    68% 15%,
+                    78% 45%,
+                    100% 100%,
+                    0% 100%,
+                    22% 45%,
+                    35% 20%);
+        }
+
+        /* CLOUD FOG */
+        .cloud-layer {
+            position: absolute;
+            left: -10%;
+            bottom: 0;
+            width: 130%;
+            height: 35%;
+            display: flex;
+            align-items: flex-end;
+            animation: moveClouds 16s linear infinite alternate;
+        }
+
+        @keyframes moveClouds {
+            from {
+                transform: translateX(-3%);
+            }
+
+            to {
+                transform: translateX(5%);
+            }
+        }
+
+        .cloud {
+            position: absolute;
+            bottom: 0;
+            width: 260px;
+            height: 90px;
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 100px;
+            filter: blur(12px);
+            box-shadow:
+                50px -20px 0 rgba(255, 255, 255, 0.65),
+                110px -5px 0 rgba(255, 255, 255, 0.7),
+                170px 10px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        .cloud:nth-child(1) {
+            left: 0;
+            bottom: 20px;
+        }
+
+        .cloud:nth-child(2) {
+            left: 25%;
+            bottom: 5px;
+            transform: scale(1.3);
+        }
+
+        .cloud:nth-child(3) {
+            left: 52%;
+            bottom: 15px;
+            transform: scale(1.1);
+        }
+
+        .cloud:nth-child(4) {
+            left: 75%;
+            bottom: 0;
+            transform: scale(1.4);
+        }
+
+        /* BIRDS */
+        .birds {
+            position: absolute;
+            top: 12%;
+            left: -10%;
+            width: 120%;
+            animation: birdsMove 12s linear infinite;
+        }
+
+        @keyframes birdsMove {
+            from {
+                transform: translateX(-8%);
+            }
+
+            to {
+                transform: translateX(8%);
+            }
+        }
+
+        .bird {
+            position: absolute;
+            width: 32px;
+            height: 16px;
+        }
+
+        .bird::before,
+        .bird::after {
+            content: "";
+            position: absolute;
+            width: 18px;
+            height: 8px;
+            border-top: 3px solid #4b5254;
+            border-radius: 50%;
+        }
+
+        .bird::before {
+            left: 0;
+            transform: rotate(20deg);
+        }
+
+        .bird::after {
+            right: 0;
+            transform: rotate(-20deg);
+        }
+
+        .bird1 {
+            top: 20px;
+            left: 12%;
+        }
+
+        .bird2 {
+            top: 65px;
+            left: 35%;
+            transform: scale(0.7);
+        }
+
+        .bird3 {
+            top: 10px;
+            left: 62%;
+            transform: scale(0.8);
+        }
+
+        .bird4 {
+            top: 55px;
+            left: 78%;
+            transform: scale(0.55);
+        }
+
+        /* Slight flying motion */
+        .bird {
+            animation: birdFly 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes birdFly {
+            from {
+                margin-top: 0;
+            }
+
+            to {
+                margin-top: 8px;
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            .sun {
+                width: 45px;
+                height: 45px;
+                right: 10%;
+            }
+
+            .mountain {
+                border-left-width: 100px;
+                border-right-width: 100px;
+                border-bottom-width: 190px;
+            }
+
+            .mountain::after {
+                top: 115px;
+                left: -100px;
+                border-left-width: 100px;
+                border-right-width: 100px;
+                border-bottom-width: 75px;
+            }
+
+            .cloud {
+                transform: scale(0.7);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="scene">
+        <div class="mountains">
+            <img src="https://imgs.search.brave.com/rHqiXQ157ExyE9ac_HHw90GdrAtTMcYtLLTO7Xf0uu4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9tb3Vu/dC1ldmVyZXN0LXN1/bW1pdC0yMTkxMTc1/MC5qcGc"  height="100%" width="100%" alt="pic" srcset="">
+        </div>
+
+        <div class="sun"></div>
+
+        <!-- Birds -->
+        <div class="birds">
+            <div class="bird bird1"></div>
+            <div class="bird bird2"></div>
+            <div class="bird bird3"></div>
+            <div class="bird bird4"></div>
+        </div>
+
+        <!-- Mountains -->
+
+        <!-- Clouds -->
+        <div class="cloud-layer">
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

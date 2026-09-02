@@ -3,120 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ATM Card</title>
 
     <style>
-        #card-container {
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        #card {
-            width: 400px;
-            height: 250px;
-            border-radius: 15px;
-            background: linear-gradient(to right, #4e54c8, #8f94fb);
-            perspective: 1000px;
-        }
-        #card .card-face {
-            width: 100%;
-            position: absolute;
-            height: 100%;
-            position: absolute;
-            backface-visibility: hidden;
-            border-radius: 15px;
-        }
-        #chip {
-            width: 60px;
-            height: 40px;
-            background-color: gold;
-            border: 2px solid #FFD700;
-            border-radius: 5px;
-            margin-top: 20px;
-        
+        * {
+            box-sizing: border-box;
         }
 
-        #Back {
-            transform: rotateY(180deg);
-            background: linear-gradient(to right, #8f94fb, #4e54c8);
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #card-container {
+            margin: 100px auto;
+            height: 300px;
+            width: 500px;
+            perspective: 1000px;
+        }
+
+        #card {
+            height: 100%;
+            width: 100%;
+            position: relative;
+            cursor: pointer;
+            color: white;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+
+        .card-face {
+            border-radius: 20px;
+            height: 100%;
+            width: 100%;
+            padding: 30px;
             position: absolute;
+            color: white;
+            backface-visibility: hidden;
+        }
+
+        .front {
+            background-image: url('https://i.pinimg.com/736x/41/52/82/4152820074cdc8081866efa500ed288f.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .front h1 {
+            font-size: 35px;
+            text-align: center;
+            margin: 0 0 20px;
+            font-weight: normal;
+        }
+
+        #chip {
+            width: 70px;
+            height: 50px;
+            border-radius: 10px;
+            background-size: 100% 100%;
         }
 
         #card-number {
-            margin-top: 30px;
-            font-size: 20px;
-            font-weight: bold;
-            letter-spacing: 9px;
-        }
-        #Expires {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        #holder-name {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-        #magnetic-strip {
-            width: 100%;
-            height: 50px;
-            background-color: black;
-            margin-top: 20px;
-        }
-        #signature {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        #signature-box {
-            width: 200px;
-            height: 30px;
-            background-color: white;
-            border: 1px solid black;
-        }
-        #cvv {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            font-size: 32px;
+            text-align: center;
+            margin: 20px auto;
+            letter-spacing: 3px;
         }
 
+        #expiry {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            flex-direction: column;
+            margin-right: 30px;
+        }
+
+        #expiry h3 {
+            margin: 5px 0;
+        }
+
+        #holder-name {
+            font-size:15px;
+            margin-bottom: 30px;
+            margin-left: 15px;
+        }
+
+        .back {
+            background-image: url("/back.png");
+            transform: rotateY(180deg);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        #card-container:hover #card {
+            transform: rotateY(180deg);
+        }
     </style>
 </head>
+
 <body>
+
     <div id="card-container">
         <div id="card">
-            <!-- Font Face -->
+
             <div class="card-face front">
-                <h1>Children'Bank of India</h1>
+                <h1>Children's Bank of India</h1>
+
                 <div id="chip"></div>
-                <div id="card-number">1234567890</div>
-                <div id="Expires">
-                    <span>Expires On</span>
-                    <h3>01/28</h3>
-                    <div id="holder-name">
-                        Ayush Kumar
-                    </div>
+
+                <div id="card-number">
+                    1234 2344 1234
                 </div>
+
+                <div id="expiry">
+                    <span>EXPIRY DATE</span>
+                    <h3>01/29</h3>
+                </div>
+
+                <h2 id="holder-name">Ayush Kumar</h2>
             </div>
-            <!-- Back Face -->
-            <div class=" card-face back">
-                <div id="magnetic-strip"></div>
-                <div id="signature">
-                    <span>Authorized Signature</span>
-                    <div id="signature-box"></div>
+
+            <div class="card-face back">
+                <div class="card-face back">
+                <p>For customer service call +23456678765</p>
+                <div id="black-strip"></div>
+                <div id="cvv-holder">
+                    <div id="lined-strip"></div>
+                    <div id="cvv"></div>
                 </div>
-                <div id="cvv">
-                    <span>CVV</span>
-                    <h3>123</h3>
-                </div>
+                <p class="para">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptate, excepturi et cum error odio quis exercitationem sequi mollitia doloribus. Magnam temporibus eveniet voluptates neque laudantium laborum voluptatibus aliquid commodi.
+                </p>
+                <p class="para">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptate, excepturi et cum error odio quis exercitationem sequi mollitia doloribus. Magnam temporibus eveniet voluptates neque laudantium laborum voluptatibus aliquid commodi.
+                </p>
             </div>
+            </div>
+
         </div>
     </div>
+
 </body>
 </html>

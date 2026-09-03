@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Identity Card</title>
+
+
+    <style>
+
+        /* ===============================
+           GLOBAL
+        =============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: #f2f2f2;
+
+            font-family: Arial, sans-serif;
+
+            padding: 30px;
+
+        }
+
+
+        /* ===============================
+           CARD CONTAINER
+        =============================== */
+
+        .card-container {
+
+            width: 700px;
+            height: 440px;
+
+            perspective: 1200px;
+
+            cursor: pointer;
+
+        }
+
+
+        /* ===============================
+           MAIN FLIP CARD
+        =============================== */
+
+        .card {
+
+            width: 100%;
+            height: 100%;
+
+            position: relative;
+
+            transform-style: preserve-3d;
+
+            transition: transform 0.8s ease;
+
+        }
+
+
+        /* HOVER FLIP */
+
+        .card-container:hover .card {
+
+            transform: rotateY(180deg);
+
+        }
+
+
+        /* ===============================
+           FRONT AND BACK
+        =============================== */
+
+        .card-front,
+        .card-back {
+
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            background: white;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.25);
+
+            backface-visibility: hidden;
+
+            -webkit-backface-visibility: hidden;
+
+        }
+
+
+        /* ===============================
+           FRONT SIDE
+        =============================== */
+
+        .card-front {
+
+            padding-top: 18px;
+
+        }
+
+
+        /* ===============================
+           FRONT HEADER
+        =============================== */
+
+        .header {
+
+            text-align: center;
+
+        }
+
+
+        .india-bar {
+
+            width: 380px;
+
+            margin: auto;
+
+            padding: 7px 10px;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    to right,
+                    #e39b32,
+                    #f2c36a,
+                    #e39b32
+                );
+
+            font-size: 22px;
+
+            font-weight: bold;
+
+            color: #444;
+
+        }
+
+
+        .gov-bar {
+
+            width: 520px;
+
+            margin: 12px auto 18px;
+
+            padding: 7px;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    to right,
+                    #4caf50,
+                    #7bc96f,
+                    #4caf50
+                );
+
+            font-family: Georgia, serif;
+
+            font-size: 23px;
+
+            font-weight: bold;
+
+            color: #1d5b29;
+
+        }
+
+
+        /* ===============================
+           FRONT MAIN CONTENT
+        =============================== */
+
+        .content {
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 0 42px 18px;
+
+            gap: 20px;
+
+        }
+
+
+        /* ===============================
+           PHOTO
+        =============================== */
+
+        .photo-box {
+
+            width: 150px;
+
+            height: 155px;
+
+            border: 1px solid #aaa;
+
+            overflow: hidden;
+
+            flex-shrink: 0;
+
+            background: #eee;
+
+        }
+
+
+        .photo-box img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+        }
+
+
+        /* ===============================
+           DETAILS
+        =============================== */
+
+        .details {
+
+            flex: 1;
+
+            line-height: 1.35;
+
+            color: #3f3f3f;
+
+        }
+
+
+        .details .hindi {
+
+            font-size: 21px;
+
+            font-weight: bold;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .details p {
+            font-size: 21px;
+            font-weight: bold;
+            letter-spacing: 0.4px;
+        }
+
+        .qr {
+
+            width: 140px;
+
+            height: 140px;
+
+            border: 1px solid #aaa;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            overflow: hidden;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .qr img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+        }
+
+
+        /* ===============================
+           ID NUMBER
+        =============================== */
+
+        .id-number {
+
+            text-align: center;
+
+            padding: 0 0 10px;
+
+            /* font-family: Georgia, serif; */
+            font-size: 40px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: #3e3e3e;
+
+        }
+
+
+        /* ===============================
+           FRONT FOOTER
+        =============================== */
+
+        .bottom {
+
+            border-top: 3px solid #d65b5b;
+
+            text-align: center;
+
+            padding: 10px 10px 20px;
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            color: #555;
+
+        }
+
+
+
+        /* =====================================
+           BACK SIDE
+        ===================================== */
+
+        .card-back {
+
+            transform: rotateY(180deg);
+
+            padding: 18px;
+
+            background: white;
+
+        }
+
+
+        /* ===============================
+           BACK HEADER
+        =============================== */
+
+        .back-header {
+
+            display: flex;
+
+            align-items: center;
+
+            border-bottom: 2px solid #d65b5b;
+
+            padding-bottom: 8px;
+
+        }
+
+
+        .back-logo img {
+            width: 70px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: #d96a3b;
+
+        }
+
+
+        .back-heading {
+            
+            flex: 1;
+            
+            
+        }
+        
+        
+        .back-heading span {
+
+            color: red;
+            background-color: orangered;
+            font-size: 17px;
+
+            margin-bottom: 4px;
+
+        }
+
+
+        .back-heading span {
+            background-color: #40c25a;
+            color:black;
+            font-size: 17px;
+            border-radius: 20px;
+
+        }
+
+
+        /* ===============================
+           BACK MAIN CONTENT
+        =============================== */
+
+        .back-content {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-start;
+
+            padding: 22px 20px 10px;
+
+            gap: 20px;
+
+        }
+
+
+        /* ===============================
+           ADDRESS
+        =============================== */
+
+        .address-info {
+
+            width: 52%;
+
+            font-size: 17px;
+
+            color: #333;
+
+            line-height: 1.35;
+
+        }
+
+
+        .address-info p {
+
+            margin-bottom: 4px;
+
+        }
+
+
+        .address-info h3 {
+
+            margin-top: 12px;
+
+            margin-bottom: 5px;
+
+            font-size: 19px;
+
+        }
+
+
+        .hindi-text {
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* ===============================
+           BACK QR
+        =============================== */
+
+        .back-qr {
+
+            width: 190px;
+
+            text-align: center;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .back-qr img {
+
+            width: 180px;
+
+            height: 180px;
+
+            object-fit: cover;
+
+            border: 1px solid #aaa;
+
+        }
+
+
+        .qr-text {
+
+            font-size: 12px;
+
+            margin-top: 5px;
+
+            color: #666;
+
+        }
+
+
+        /* ===============================
+           BACK ID
+        =============================== */
+
+        .back-id {
+
+            text-align: center;
+
+            font-size: 30px;
+
+            /* font-family: Georgia, serif; */
+
+            font-weight: bold;
+
+            letter-spacing: 5px;
+
+            margin-top: 2px;
+
+            color: #333;
+
+        }
+
+
+        .vid {
+
+            text-align: center;
+
+            font-size: 13px;
+
+            margin-top: 4px;
+
+            color: #444;
+
+        }
+
+
+     
+
+        .back-footer {
+
+            position: absolute;
+
+            bottom: 15px;
+
+            left: 0;
+
+            width: 100%;
+
+            border-top: 2px solid #d65b5b;
+
+            padding: 10px 30px 0;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            color: #555;
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+
+    <div class="card-container">
+        <div class="card">
+            <!--
+                 FRONT SIDE
+         -->
+
+            <div class="card-front">
+                <!-- HEADER -->
+                <div class="header">
+                    <div class="india-bar">
+                        भारत - सरकार
+                    </div>
+                    <div class="gov-bar">
+                        IDENTITY INFORMATION CARD
+                    </div>
+                </div>
+                <!-- MAIN CONTENT -->
+                <div class="content">
+                    <!-- PHOTO -->
+                    <div class="photo-box">
+                        <img
+                            src="Ayush.jpg"
+                            alt="Profile Photo">
+                    </div>
+                    <!-- PERSONAL DETAILS -->
+                    <div class="details">
+                        <div class="hindi">
+                            नाम
+                        </div>
+                        <p>Ayush Kumar</p>
+                        <p>DOB - 29/02/2004</p>
+
+                        <p>MALE</p>
+
+
+                    </div>
+                    <!-- QR CODE -->
+                    <div class="qr">
+
+                        <img
+                            src="qr.png"
+                            alt="QR Code">
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- DEMO NUMBER -->
+
+                <div class="id-number">
+
+                    1234 5678 9012
+
+                </div>
+
+
+
+                <!-- FOOTER -->
+
+                <div class="bottom">
+                   मेरा <span style="color: red;">आधार</span> , मेरी पहचान
+
+                </div>
+            </div>
+            <div class="card-back">
+
+
+                <!-- BACK HEADER -->
+
+                <div class="back-header header">
+                    <div class="back-logo">
+                        <img src="log.jpg" alt="">
+                    </div>
+                    <div class="back-heading">
+                        <h3>
+                            IDENTITY INFORMATION AUTHORITY
+                        </h3>
+                        <span>
+                            Unique Identification Information
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- BACK MAIN CONTENT -->
+                <div class="back-content">
+                    <!-- ADDRESS -->
+                    <div class="address-info">
+                        <h3>
+                            Address-
+                        </h3>
+                        <p>
+                            Ghazipur,Uttar Pradesh
+                        </p>
+                        <p>
+
+                            City- Ghazipur
+                        </p>
+                        <p>
+                            State - UP
+                        </p>
+                    </div>
+                    <!-- BACK QR -->
+                    <div class="back-qr">
+                        <img
+                            src="qr.png"
+                            alt="QR Code">
+                        <div class="qr-text">
+                            QR Code with Photograph 
+                        </div>
+                    </div>
+                </div>
+                <!-- DEMO ID NUMBER -->
+
+                <div class="back-id">
+                    1234 5678 9012
+                </div>
+                <div class="vid">
+                    VID: XXXX XXXX XXXX XXXX
+                </div>
+                <div class="back-footer">
+                    <span>
+                        IDENTITY INFORMATION
+                    </span>
+                    <span>
+                        www.uidai.com
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

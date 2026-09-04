@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #navbar{
+            display: flex;
+            justify-content: space-evenly;
+            background-color: black;
+            color: grey;
+            
+        }
+        #navbar ul{
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+            font-size: 28px;
+            list-style: none;
+        }
+
+        #navbar ul li{
+            position: relative;
+            cursor: pointer;
+        }
+        #navbar ul li::before {
+            content: " ";
+            width: 0%;
+            height: 5px;
+            background-color: red;
+            position: absolute;
+            bottom: 0px;
+            margin: 0px auto;
+            transition: all 0.5s  linear;
+        }
+        #navbar ul li:hover::before{
+            width: 100%;      
+            margin: 0px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+            <li>Services</li>
+        </ul>
+    </div>
+</body>
+</html>

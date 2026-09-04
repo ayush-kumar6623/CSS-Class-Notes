@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<style>
+    *{
+        margin-top: 0;
+    }
+    #first{
+        height: 150px;
+        width: 150px;
+        background-color: green;
+        border: 2px solid;
+        float: right;
+    }
+    #second{
+        height: 150px;
+        width: 150px;
+        background-color: red;
+        border: 2px solid;
+        
+    }
+    #third{
+        height: 150px;
+        width: 150px;
+        background-color: rgb(117, 228, 102);
+        border: 2px solid;
+        
+    }
+    #Down-left{
+        height: 150px;
+        width: 150px;
+        background-color: blue;
+        border: 2px solid;
+        
+    }
+    #fade-up{
+        height: 150px;
+        width: 150px;
+        background-color:orange;
+        border: 2px solid;
+        
+    }
+   
+
+
+</style>
+
+<body>
+
+    
+    <div id="first" data-aos="zoom-out-left"></div>
+    <div id="second" data-aos="zoom-in-right"></div>
+    <div id="third" data-aos="flip-right"></div>
+    <div id="Down-left" data-aos="fade-down-left"></div>
+
+    <div id="fade-up" 
+    data-aos="fade-up"
+     data-aos-duration="3000"></div>
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

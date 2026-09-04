@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Navigation</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        nav{
+            height: 80px;
+            width: 100%;
+            background-color: rgb(0, 0, 0);
+        }
+        nav ul{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        nav ul li{
+            list-style-type: none;
+            color: red;
+            font-size: 20px;
+            padding: 10px 20px;
+        }
+        nav ul li:hover{
+            
+            color: blue;
+        }
+        .drop-down{
+            position: relative;
+        }
+        .drop-down ul{
+            color: red;
+            position: relative;
+            top: 25px;
+            left: 0;
+            width: 200px;
+            display: none;
+            flex-direction: column;
+        }
+        .drop-down:hover ul{
+            display: flex;
+         
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li class="drop-down">Services
+                <ul>
+                    <li>Web </li>
+                    <li>App </li>
+                    <li>SEO</li>
+                </ul>
+            </li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+</body>
+</html>

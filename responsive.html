@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive</title>
     <style>
-        *{
+        * {
             padding: 0px;
             margin: 0px;
             box-sizing: border-box;
         }
-        #container{
+
+        #container {
 
             min-height: 100vh;
             background-color: yellow;
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            width: calc(100vw, -50px);
             justify-content: space-evenly;
         }
-        #container div{
+
+        #container div {
             height: 300px;
-            width: max(300px,30%);
+            width: max(300px, 45%);
             background-color: green;
+        }
+/* 0px----375px */
+        @media (min-width:425px)and (max-width:768px){
+            #container{
+                background-color: red;
+            }
+
         }
     </style>
 </head>
+
 <body>
     <div id="container">
-       <div></div>
-       <div></div>
-       <div></div>
-       <div></div>
-       <div></div>
-       <div></div>
-       <div></div>
-       <div></div>
-       <div></div>
-       <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
 
     </div>
 </body>
